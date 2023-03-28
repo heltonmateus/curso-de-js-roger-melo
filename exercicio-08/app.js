@@ -7,6 +7,12 @@
   - Exiba o resultado no console, sem inserir um console.log() dentro da função.
 */
 
+function retornar (number1 = 0, number2 = 0) {
+   return number1 * number2
+}
+
+console.log(retornar(2,2))
+
 /*
   02
 
@@ -14,6 +20,13 @@
     **function expression** que retorne o resultado da **divisão** entre esses  
     2 números.
 */
+
+const divi = function(div1 = 0, div2 = 0) {
+  return div1 / div2
+}
+console.log(divi(10,2))
+
+
 
 /*
   03
@@ -28,6 +41,15 @@
   "Esta é a Xª vez que essa string é exibida."
 */
 
+const exibir = function (value = 'Voce deve passar um valor como argumento'){
+  console.log(value)
+  
+}
+for(let i = 0; i <= 7; i++){
+  console.log(`Esta é a ${i} vez que essa string é exibida`)
+  }
+
+
 /*
   04
 
@@ -41,6 +63,17 @@
 
 const millennialWords = ['lol', 'yolo', 'troll', 'stalkear', 'selfie', 'influencer', 'crush', 'fitness', 'hater', 'bae', 'random', 'kawaii', 'outfit', 'mood', 'fail']
 
+const letrasMaiusculas = function (array = []) {  
+  let newArray = []
+  for(let i = 0; i < array.length; i++){
+    newArray.push(array[i].toUpperCase())
+  }
+  return newArray
+}
+exibir(letrasMaiusculas(millennialWords))
+
+
+
 /*
   05
 
@@ -53,7 +86,22 @@ const millennialWords = ['lol', 'yolo', 'troll', 'stalkear', 'selfie', 'influenc
 */
 
 const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3]
+ let numeroPositivo = 0
+ let numeroNegativo = 0
 
+ const positivo = function(number = 0){
+   return number >=1
+ }
+
+ for(let i = 0; i < randomNumbers.length; i++){
+    if(positivo(randomNumbers[i])){
+      numeroPositivo++
+    } else{
+      numeroNegativo++
+    }
+ }
+
+ console.log(`O array "randomNumbers" possui ${randomNumbers.length} números, sendo ${numeroPositivo} positivos e ${numeroNegativo} negativos.`)
 /*
   06
 
@@ -63,8 +111,18 @@ const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3]
   - Exiba o novo array no console, sem inserir um console.log() dentro da  
     função.
 */
+const getOddNumbers = function (numbers = []){
+  let newArray = []
 
-// getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42])
+for(let i = 0; i < numbers.length; i++){
+
+  if(numbers[i] % 2 !== 0){
+    newArray.push(numbers[i])
+  }
+}
+return newArray
+}
+console.log(getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42]))
 
 /*
   07
@@ -102,3 +160,9 @@ const functions = [
   function () { return 'Índias' },
   function () { return 'Ocidentais.' }
 ]
+
+let sentence = ''
+for(let i = 0; i < functions.length; i++){
+  sentence += `${functions[i]()} `
+}
+console.log(sentence)

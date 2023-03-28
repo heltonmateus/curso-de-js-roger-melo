@@ -21,6 +21,34 @@
   Dica: pesquise pelo método "insertAdjacentElement", no MDN;
 */
 
+const usernameRegex = /^[a-zA-Z]{6,}$/
+const inputUsername = document.querySelector('#username')
+const paragraphUsernameFeedback = document.createElement('p')
+const paragraphSubmitFeedback = document.createElement('p')
+
+paragraphSubmitFeedback.setAttribute('data-feedback', 'submit-feedback')
+
+inputUsername.addEventListener('keyup', event =>{
+  const inputValue = event.target.value
+
+  const paragraphSubmitFeedbackExists = document.querySelector('[data-feedback ="submit-feedback"]')
+
+  if(paragraphSubmitFeedbackExists) {
+    paragraphSubmitFeedback.remove()
+  }
+  
+  if(!usernameRegex.test(inputValue)){
+    paragraphUsernameFeedback.textContent = 'O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas'
+    paragraphUsernameFeedback.setAttribute('class', 'username-help-feedback')
+    event.target.insertAdjacentElement('afterend', paragraphUsernameFeedback)
+    return
+  }
+
+  paragraphUsernameFeedback.textContent = 'Username válido =)'
+  paragraphUsernameFeedback.setAttribute('class', 'username-success-feedback')
+  event.target.insertAdjacentElement('afterend', paragraphUsernameFeedback)
+})
+ 
 /*
   02
 
@@ -32,6 +60,26 @@
   - Use as classes disponíveis no arquivo style.css para colorir o parágrafo;
   - Não insira o parágrafo manualmente no index.html.
 */
+
+const form = document.querySelector('form')
+const button = document.querySelector('button')
+
+form.addEventListener('submit', event =>{
+  event.preventDefault()
+  const inputValue = inputUsername.value
+
+  if(!usernameRegex.test(inputValue)){
+    paragraphSubmitFeedback.textContent = 'Por favor, insira um username valido'
+    paragraphSubmitFeedback.setAttribute('class', 'submit-help-feedback')
+    button.insertAdjacentElement('afterend', paragraphSubmitFeedback)
+
+    return    
+  }
+
+  paragraphSubmitFeedback.textContent = 'Dados enviados'
+  paragraphSubmitFeedback.setAttribute('class', 'submit-success-feedback')
+  button.insertAdjacentElement('afterend', paragraphSubmitFeedback)
+})
 
 /*
   03
@@ -53,3 +101,16 @@
   Spoiler alert: este tipo de exercício será frequente em etapas mais avançadas  
   do curso, onde falaremos sobre TDD. Vá se aquecendo =D
 */
+
+//52.19
+
+const some = (array, func) => {
+  for (let i = 0; i < array.length; i++){
+    if (func(array[i])) {
+      return true
+    }
+  }
+  return false
+}
+console.log(some([1,2,3], item => item === 2))
+console.log(some([4,5,6], item => item === 3))

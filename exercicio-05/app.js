@@ -21,6 +21,14 @@
     5
 */
 
+/*
+let i = 0
+
+while(i <= 5){
+  console.log(i);
+  i++
+}
+*/
 
 
 /*
@@ -29,6 +37,11 @@
   - Utilizando um for loop, faça o mesmo que foi pedido no exercício 01.
 */
 
+/*
+for(let i=0 ; i < 6; i++){
+  console.log(i)
+}
+*/
 
 
 /*
@@ -43,6 +56,12 @@
 */
 
 
+for(let i=1; i<=10; i++){
+  //console.log(`Esta é a ${i}ª vez que esta frase é exibida no console.`)
+}
+
+
+
 
 /*
   04 - Comente o loop acima e:
@@ -54,7 +73,21 @@
   - Para ver se deu certo, exiba o upperCaseCities no console.
 */
 
+
+
 const cities = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais']
+let upperCaseCities = []
+
+for(let i=0; i<cities.length; i++){
+
+  upperCaseCities.push(cities[i].toLocaleUpperCase())
+}
+
+//console.log(upperCaseCities)
+
+
+
+
 
 /*
   05 - Comente o console.log acima e:
@@ -67,6 +100,17 @@ const cities = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais']
 
 const names = ['João Grilo', 'Chicó', 'Rosinha']
 
+let HTMLTemplate = ''
+
+for(let i = 0; i < names.length; i++){
+
+HTMLTemplate += `<li>${names[i]}</li>`
+}
+
+//console.log(HTMLTemplate)
+
+
+
 /*
   06 - Comente o console.log acima e:
 
@@ -77,6 +121,16 @@ const names = ['João Grilo', 'Chicó', 'Rosinha']
 */
 
 const numbers = ['91', '5', '30', '97', '83', '31']
+
+let soma = 0
+
+for(let i = 0; i < numbers.length; i++){
+
+  soma = soma + Number(numbers[i])
+
+  //console.log(soma)
+}
+//console.log(soma === 337)
 
 /*
   07 - Comente o console.log acima.
@@ -94,6 +148,7 @@ const numbers = ['91', '5', '30', '97', '83', '31']
   - Após o for, exiba no console o resultado, que deve ser 218.
 
   Dica: você pode colocar um loop dentro do outro, ou seja, aninhá-los. =)
+  13:25
 */
 
 const arrays = [
@@ -102,3 +157,11 @@ const arrays = [
   [8, 32, 16],
   [2, 8, 4]
 ]
+
+somaArray = 0
+
+for(let i = 0; i < arrays.length; i++){
+  for(let j = 0; j < arrays[i].length; j++)  
+  somaArray += arrays[i][j]
+}
+console.log(somaArray)

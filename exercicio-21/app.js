@@ -2,27 +2,49 @@
   01
 
   - Gere um novo array com apenas os números ímpares do array abaixo e exiba 
-    o novo array no console.
+    o novo array no console. 
+    **Filter
 */
 
 const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
+
+const oddNumbers = randomNumbers.filter(randomNumber => randomNumber % 2 ===1)
+
+//console.log(oddNumbers)
 
 /*
   02
 
   - Exiba no console quantos números abaixo de 501 o array abaixo possui.
+  **reduce
 */
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
+
+const numbermenor501 = crazyNumbers.reduce((accumulator, crazyNumber)=>{
+  if(crazyNumber < 501){
+    accumulator += 1
+  }
+  return accumulator
+},0)
+
+//console.log(numbermenor501)
+
+
 
 /*
   03
 
   - Gere um novo array com cada um dos números abaixo elevados ao quadrado e 
     exiba o novo array no console.
+    **map
 */
 
 const numbers = [5, 7, 3]
+
+const quadrado = numbers.map(number => number ** 2)
+
+//console.log(quadrado)
 
 /*
   04
@@ -33,6 +55,8 @@ const numbers = [5, 7, 3]
   
   Dica: para quebrar linha, você pode usar dentro da string o caractere 
   especial \n.
+
+  **reduce
 */
 
 const cart = [
@@ -49,12 +73,20 @@ const cart = [
   - Nome 3
 */
 
+const lista = cart.reduce((accumulator, produto) =>{
+  return`${accumulator}- ${produto.name} \n`
+},'')
+
+//console.log(lista)
+
 /*
   05
 
   - Utilizando o array abaixo, gere um novo array com apenas os filmes lançados 
     antes do ano 2000;
   - Exiba o novo array no console.
+
+  **filter
 */
 
 const tarantinoMovies = [
@@ -70,11 +102,17 @@ const tarantinoMovies = [
   { name: 'Kill Bill: Volume 1', release: 2003 }
 ]
 
+const filmes = tarantinoMovies.filter(tarantinoMovie => tarantinoMovie.release < 2000)
+
+//console.log(filmes)
+
 /*
   06
 
   - Gere um novo array que contém apenas os nomes das séries abaixo;
   - Exiba o novo array no console.    
+
+  **map
 */
 
 const tvShows = [
@@ -87,9 +125,8 @@ const tvShows = [
   { name: 'Watchmen', releaseYear: 2019 }
 ]
 
-/*
-  07
+const serie = tvShows.map(tvShow => tvShow.name)
 
-  - Observe os loops da sua versão do quiz e considere se, baseado no que foi  
-    visto nessa aula, você deve refatorá-los.
-*/
+//console.log(serie)
+
+
